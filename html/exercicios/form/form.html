@@ -2,7 +2,36 @@
 
 <form action="http://localhost:3003/usuarios" method="POST">
     <input type="text" name="nome">
-    <input type="passaword" name="senha">
+    <input type="password" name="senha">
     <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+        <input type="radio" name="tipo" value="admin"> Admin
+        <input type="radio" name="tipo" value="regular">> Regular
+        <input type="radio" name="tipo" value="professor">> Professor
+    </div>
+    <div>
+        <input type="checkbox" name="ativo"> Ativo
+    </div>
+    
+    <select name="estado">
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="ce">Ceará</option>
+    </select>
+
     <button>Incluir</button>
 </form> 
+
+<style>
+        input,
+        textarea,
+        select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            display: inline;
+        }
+</style>
