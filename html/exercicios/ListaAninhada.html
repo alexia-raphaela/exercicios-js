@@ -1,0 +1,73 @@
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        backend
+        <ul>
+            <li>
+                <a class="expandir" href="app.html">app</a>
+                <ul class="conteudo" id="app"></ul>
+            <li>
+                <a class="expandir"  href="config.html">config</a>
+                <ul class="conteudo" id="config"></ul>
+            </li>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class="expandir">frontend</a>
+        <ul class="conteudo" id="frontend">
+            <li>app.css</li>
+            <li>app.js</li>
+            <li>index.html</li>
+        </ul> 
+    </li>
+</ul>
+
+<script>
+    //1.javascript pega todos os elementos do tipo link com a classe css chamada expandir
+        const links = document.getElementsByClassName("expandir")
+        //console.log(expandir)
+
+        for(item of links) { //2. acessar cada elemento link
+            const textoDoLink = item.innerText //3.nome do link
+            const conteudo = document.getElementById(textoDoLink)//4.o elemento conteudo a partir do nome do link
+            //console.log('ITEM: ', item)
+            //console.log('CONTEUDO: ', conteudo)
+            //5.usando o atributo href do elemento link para trazer o documento externo
+            fetch(item.href)
+            //pega o texto do conteudo
+                .then(resp => resp.text())
+                //6.html do documento é colocado dentro elemento conteudo
+                .then(html =>  conteudo.innerHTML = html)
+
+            item.addEventListener("click", e => {
+                e.preventDefault()
+                
+                //console.log('ITEM: ', item)
+                //console.log('CONTEUDO: ', conteudo)
+                
+
+                if(conteudo.style.display==="block"){
+                    conteudo.style.display = "none"
+                } else {
+                    conteudo.style.display = "block"
+                }
+            })
+        }
+</script>
+<style>
+    .expandir{
+          transition:0.4s;
+      }
+
+      .active, .expandir:hover{
+          background-color:aqua;
+      }
+
+      .conteudo{
+          padding:0 18px;
+          background-color: blanchedalmond;
+          display:none;
+          overflow:hidden;
+      }
+</style>

@@ -1,0 +1,33 @@
+<!-- Estrutura basica de uma pagina -->
+<!-- As tres formas basicas de você fazer a conexão do css com html é a partir do proprio nome da tag -->
+<!-- id é um identificador unico dentro de uma pagina -->
+<html>
+    <head>
+      <title>Um Pouco de CSS</title>
+      <link rel="stylesheet" href="poucoDeCSS.css">
+      <style>
+          h1, span {
+              font-size: 20px;
+              /* display: none; */
+              /* background-color: aqua; */
+              /* position: absolute; */
+              /* top: 400px; */
+              /* right: 400px; */
+          }
+          .fundoVermelho { /* uma classe css começa com ponto */
+              background-color:darksalmon
+          }
+
+          .negrito {
+              font-weight: bold;
+          }
+
+      </style>  <!-- dentro da tag style é a area especificamente para codigo css -->
+    </head>
+    <body>
+        <h1>CSS</h1>
+        <span id="textoPrincipal">Texto 1</span><br><br><br>
+        <span class="fundoVermelho negrito">Texto 2</span><br><br>
+        <span class="fundoVermelho" wm-atrib>Texto 3</span>
+    </body>
+</html>

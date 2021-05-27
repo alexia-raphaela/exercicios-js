@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios HTML</title>
+  <style>
+      #conteudo {
+          padding: 30px 0px;
+      }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste</a> |
+        <a href="exercicios/texto1.html">01 - texto 1</a> |
+        <a href="exercicios/texto2.html">02 - texto 2</a> |
+        <a href="exercicios/listas.html">03 - listas</a> |
+        <a href="exercicios/ListaAninhada.html">04 - Lista Aninhada</a> |
+        <a href="exercicios/Links.html">05 links</a> |
+        <a href="exercicios/tabela.html">06 Tabela</a> |
+        <a href="exercicios/form/form.html">07 Formulario</a> |
+    </nav>
+    <section id="conteudo"></section>
+    <footer>Curso de Web Moderno</footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e) {
+                e.preventDefault()
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+            
+        })
+    </script>
+</body>
+</html>
+<!-- linha 19_Acossiei a cada link uma função que será disparada no onclick -->
+<!-- linha 23_ele vai prevenir o comportamento padrão de navegação -->
+<!-- linha 20_Obtive o comportamento a partir de um getElement -->
+<!-- linha 24_estou fazendo uma fetch, uma requisição ajax em cima do atributo href, que me da o link da pagina -->
+<!-- linha 25_uma vez que a promisse foi resolvida, ele chama a função then, me dando a resposta -->
+

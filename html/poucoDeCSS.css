@@ -1,0 +1,9 @@
+#textoPrincipal { /* Aplicando css para um tipo de id */
+  font-size: 40px;
+  font-weight: bold;
+  color:hotpink;
+  padding: 10px;
+  background-color:mediumvioletred;
+  margin-bottom: 50px;
+
+}

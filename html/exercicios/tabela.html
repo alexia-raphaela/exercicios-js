@@ -1,0 +1,56 @@
+<!--Tag que define uma tabela -->
+<table>
+    <caption>Produtos</caption>
+    <thead> <!-- Irá definir onde será colocado o meu cabeçalho-->
+        <tr> <!-- Será uma linha-->
+            <th>Produto</th> <!--Será coluna -->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>iPad</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Sansung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td>
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding:10px;
+    }
+
+    thead tr {
+        border-bottom: solid 3px deeppink;
+    }
+
+    tbody tr:hover {
+        background-color: pink;
+    }
+
+    tfoot {
+        background-color: fuchsia;
+        color:ghostwhite;
+        font-weight: bold;
+    }
+</style>
