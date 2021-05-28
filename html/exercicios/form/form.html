@@ -1,6 +1,8 @@
 <h1>Formulario</h1>
 
-<form action="http://localhost:3003/usuarios" method="POST">
+<form method="POST">
+    <!-- Tipo de input, que carrega um valor que você não quer exibir para o usuario -->
+    <input type="hidden" name="id" value="3">
     <input type="text" name="nome">
     <input type="password" name="senha">
     <textarea name="bio" cols="30" rows="10"></textarea>
@@ -29,7 +31,9 @@
         <option value="c">C</option>
     </select>
 
-    <button>Incluir</button>
+    <!--Reuzar o formulario tanto para incluir quanto para alterar-->
+    <button formaction="http://localhost:3003/usuarios">Incluir</button>
+    <button formaction="http://localhost:3003/usuarios/3" >Alterar</button>
 </form> 
 
 <style>
