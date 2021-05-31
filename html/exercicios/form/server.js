@@ -16,7 +16,7 @@ app.post('/usuarios', (req, resp) => {
 
 app.post('/usuarios/:id', (req, resp) => {
     //mostrar tanto o id que foi obtido a partir dos parametros da url
-    console.log(req.params.id)
+    console.log(req.params.id) // este console.log mostra no backend o id que ele está trazendo
     // obter tudo que veio no body
     console.log(req.body)
     // Quando o usuario clicar no formulario para submeter
