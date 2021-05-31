@@ -1,0 +1,69 @@
+<div wm-slider>
+    <p>
+        <!--Propriedade src, referencia o endereço, a fonta da imagem abaixo-->
+        <!--Alt é uma propriedade usada quando a imagem não é carregada, além de ter outras utilidades também-->
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+            alt="Muro da Cidade"
+            witdh="513" height="342"
+            title="Muro da Cidade por Tarso Bessa">
+    </p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+        alt="Intro Cod3r" height="342">
+    <p>
+    
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png"
+            alt="Rio de Janeiro" height="342">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+            alt="Avatar" height="50" align="left">
+        TextoTextoTextoTextoTextoTextoTextoTextoTextoTextoTexto
+        TextoTextoTextoTextoTextoTextoTextoTextoTextoTextoTextoo
+        TextoTextoTextoTextoTextoTextoTextoTextoTextoTextoTextooooo
+        TextoTextoTextoTextoTextoTextoTextoTextoTextoTextoTextoooo
+        TextoTextoTextoTextoTextoTextoTextoTextoTextoTextoText.
+        extoTextoTextoTextoText.extoTextoTextoTextoText.extoTextoTextoTextoText.
+        extoTextoTextoTextoText.extoTextoTextoTextoText.extoTextoTextoTextoText.
+        extoTextoTextoTextoText.extoTextoTextoTextoText.extoTextoTextoTextoText.
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                media="(min-width: 600px)">
+                <!--A imagem só será exibida se o tamanho for no minimo 60px-->
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+    
+</div>
+
+<style>
+     .circular {
+         width: 513px;
+         background-color: blanchedalmond;
+     }
+
+     .texto {
+         width: 500px;
+     }
+
+     .texto img {
+         margin-right: 10px;
+     }
+
+     .cidade {
+         width: 513px;
+         height: 342px;
+         background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: 200%;
+     }
+</style>
