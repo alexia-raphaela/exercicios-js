@@ -45,20 +45,30 @@
 </div>
 
 <style>
+    p {
+        position: absolute;
+        display: none;
+
+    }
+
      .circular {
+         
          width: 513px;
          background-color: blanchedalmond;
+         
      }
 
      .texto {
          width: 500px;
      }
 
-     .texto img {
-         margin-right: 10px;
+     .texto img { 
+       
+        margin-right: 10px;
      }
 
      .cidade {
+      
          width: 513px;
          height: 342px;
          background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
@@ -67,3 +77,59 @@
          background-size: 200%;
      }
 </style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            // nessa condição novoinicio sera passado novamente para a funçao mover
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+    // pegando primeira tag p dentro de wm-slider
+   //const p =document.querySelector('[wm-slider] > p')
+   // p.style.display = 'block'
+    // chamar funçao mover em cima da tag p
+    //mover(p, 1500, -400, 5, () => {
+       // console.log('Terminou!!!') })
+
+    // função que de fato vai desparar a configuração do meu slide
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+    // a função callback dentro de mover avisara sempre que o movimento de cada slide terminar, para chamar o proximo
+    function exibirSlide(slides, slide) {
+        // tag p o slide ficará visivel
+        slide.style.display = 'block'
+
+        // largura da pagina
+        // inicio sera passado na chaamada da função mover
+        const inicio = innerWidth
+        // menos a largura da area, da tag p
+        // fim sera passado na chamada da função mover
+        const fim = -slide.clientWidth
+
+        // aplicando inicio, usando a unidade pixel
+        slide.style.left = `${inicio}px`
+
+        // fazer com que o proximo slide seja chamado, quando o movimento atual estiver terminado 
+        mover(slide, inicio, fim, 5, () => {
+            // no final do movimento ele sera invisivel
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide)) // objetivo, calcular o proximo slide
+
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1 // retornara o indice atual + 1 retornara o proximo
+        // condição para se o proximo não estiver na lista
+        return i < lista.length ? lista[i]: lista[0]
+    }
+    slider()
+</script>
