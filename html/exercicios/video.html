@@ -1,0 +1,69 @@
+<video id="meuVideo" width="880" height="450" controls controlsList="nodownload">
+  <!--dessa forma voce consegue implementar varias fontes de videos, de formatos diferentes-->
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="">
+    Seu browser não suporta a tag de vídeo.
+</video>
+
+<!--Esta div representara a barra de progresso-->
+<!--A div mais externa define a moldura do progresso, a area-->
+<!--A div iterna prenchera com uma cor a barrinha de progresso-->
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<!--Usando uma propriedade especifica no lugar do id-->
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #900;
+        margin: 20px;
+    }
+    
+    .progresso > div {
+        background-color:darkgray;
+        color:darkred;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+  //const video = document.getElementById("meuVideo")
+  //const play = document.querySelector('[wm-play]')
+  //const pause = document.querySelector('[wm-pause]')
+ // const barra = documen.querySelector('[wm-progresso]')
+
+ function configurarVideo(id) {
+   const video = document.getElementById(id)
+   video.oncontextmenu = () => false
+
+   document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+   document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+   setInterval(() => {
+      const percentual = (video.currentTime / video.duration) * 100
+      const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+      // aplicando em cima da div o valor que eu quero
+      valorDiv.style.width = `${percentual}%`
+      // pegando valores da div
+      valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+  }, 500)
+}
+
+configurarVideo('meuVideo')
+
+ // pause.addEventListener("click", function() {
+    //video.pause() }) 
+ 
+
+  
+
+</script>
