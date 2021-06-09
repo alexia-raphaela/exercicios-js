@@ -6,7 +6,31 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* * */    
+       /* .tag */
+       /*aprovados*/
+       /*Dentro de aninhado quero pegar direamente o elemento div, o filho dentro de aninhado
+       #aninhado > div*/
+       /*#aninhado > section  DESTA FORMA NÃO É SELECIONADO, PORQUE SECTION NÃO ESTÁ DIRETAMENTE DENTRO DE ANINHADO*/ 
+       /* #aninhado section Dessa forma os descendentes são selecionados, ou seja, section é selecionado */
+       /* Seleciona diretamente a ul que vem depois de p
+        p + ul*/
+       /* filhos do mesmo pai mas que não são adjacentes, ou seja, não estão lado a lado
+        p ~ ol*/
+        /*Seletor irá porcurar todos os elementos que tem como propriedade feira
+         [feira] */
+        /* Dessa forma ira pegar possveis elementos que estejam dentro de feira
+        [feira~=escritorio] */
+        /*[feira*=sa]*/ 
+        /*span:nth-child(1) Quero o primeiro filho de alguem do tipo span*/
+        /*section > :nth-child(odd) Dentro de uma section me de todos os filhos impares, posso tambem pegar os pares (even)*/
+        /*section > :nth-child(odd), ul vou aplicar esse mesmo padrão também para ul*/
+        /*Desse modo ele vai pegar o segundo elemento span dentro da section */
+        section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: coral;
+      }
+
     </style>
 </head>
 
@@ -29,7 +53,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
