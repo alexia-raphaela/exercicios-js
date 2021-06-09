@@ -6,11 +6,40 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /*
+            Em linhas gerais...
+            1.regra com !important, evitar abordagem com impotant
+            2.seletores mais específicos
+            3.última regra processada tem prioridade (empate)
+        */
+
+        p {
+            background-color: #aaa;
+        }
+        
+        /* Uma é mais especifico que uma tag p, ou seja, é mais forte que a tag p*/
+        /*É aplicado a qualquer elemento que tiver essa classe*/
+        .observacao {
+            background-color:cornflowerblue;
+            border: dashed 5px;
+            padding: 200px!important;
+            /* O important funciona como uma exeção */
+            font-size: 40px;
+        }
+        /* Classe acossiada com um tipo de elemento, o nivel de especificidade é maior, é aplicado 
+        somente ao elemento p com essa classe*/
+        p.observacao {
+            padding: 2px;
+            background: linear-gradient(to right, red, yellow)
+        }
     </style>
 </head>
 
 <body>
+    <!--Só sobrescrito a tag que tem a classe observação-->
     <p class='observacao'>Olha essa observação!!!!</p>
+    <div class='observacao'>Alexia</div>
+    <p>Robert</p>
 </body>
 
 </html>
