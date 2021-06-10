@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <title>Herança</title>
     <style>
+        /*Importanto um estilo*/
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
         body {
-            font-family: 'Oswald', sans-serif; /* font-family foi transmitida por herança, assim como font-size também*/
+            font-family: 'Open Sans', sans-serif;; /* font-family foi transmitida por herança, assim como font-size também*/
             font-size: 40px;
             border: solid 3px red;
             padding: 50px;
+        }
+
+        div {
+            border: inherit; /*palavra especfica para heraça*/
+            padding: inherit;
         }
     </style>
 </head>
