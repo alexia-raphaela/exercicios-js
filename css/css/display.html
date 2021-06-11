@@ -22,7 +22,11 @@
             height: 80px;
             padding-top: 30px;
             text-align: center;
-            display: block;     /* Cada elemento terá sua linha */
+            display: block;     /* Cada elemento terá sua linha */ /*Display block causa que o comportamento do elemento é ser impresso na sua propria linha */
+            display: inline;    /* Com o display inline não é possivel definir a altura ou a largura de um componente */  /* Os componentes se mantem na mesma linha */
+            display: inline-block;  /* Os componentes se mantem na mesma linha porém é considerado a altura e largura do componente */
+            
+
         }
     </style>
 </head>
