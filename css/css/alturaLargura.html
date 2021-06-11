@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        html {
+            height: 100%;
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
         }
 
         div {
@@ -16,6 +20,12 @@
 
         span {
             background-color: dodgerblue;
+        }
+
+        span, div {
+            /* Somente quado você altera o tamanho de um componente com um valor fixo, o tamanho do body é modificado */
+            width: 50%;
+            height: 50%;
         }
     </style>
 </head>
