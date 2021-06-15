@@ -5,7 +5,31 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        .unidades-absolutas {
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            width: 4cm; /* pouco usado */
+            height: 20mm;   /* pouco usado */
+            top: 150px;    /* A distancia do topo para sua div */
+            left: 200px;    /* Distancia do lado esquerdo */
+
+        }
+
+        .unidades-relativas {
+            position: absolute;
+            /* Quando trabalhado com dimensoes relativas a fonte vai mudando de acordo com o tamanho do browser */
+            font-size: 4em;  /* unidade font relaciona com o tamanho da fonte mais perto*/
+            padding: 5%;
+            border: solid 1vw #222;
+            margin: .8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;\
+        }
     </style>
 </head>
 
