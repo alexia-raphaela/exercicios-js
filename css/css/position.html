@@ -9,6 +9,8 @@
             font-size: 60px;
             padding: 30px;
             border: solid 5px #222;
+            color: #fff;
+
         }
 
         .static {
@@ -24,11 +26,44 @@
             background-color: tomato;
         }
 
-        .relative1 {
+        .relative1 { /* Relative se posiciona em relação ao anterior*/
             position: relative;
             left: 50px;
             top: 5px;
             background-color: seagreen;
+        }
+
+        .absolute1 { /* O absolute se posiciona em relação a pagina */
+            position: absolute;
+            left: 350px;
+            top: 0px;
+            background-color: violet;
+        }
+
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategrey;
+        }
+
+        .absolute2 { /* ele vai se posicionar de forma absoluta com relação ao elemento pai */
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky {
+            position: -webkit-sticky;   /* Safari */
+            position: sticky;
+            background-color: #777;
+            top: 0px;
+            
         }
     </style>
 </head>
