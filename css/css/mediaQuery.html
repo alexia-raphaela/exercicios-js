@@ -12,6 +12,19 @@
             border: solid 5px;
             display: none;
         }
+        /* define a media e passa aquilo que você quer usar como criterio, para ele aplicar ou não o que está dentro dessa media query */
+        @media (max-width: 600px) {
+            /* irá exibir se a largura for menor ou no maximo 600px */
+            .muito-pequeno { display: block; }
+        }
+        /* Com media você trabalhara com ou */
+        @media (max-width: 1000px), (orientation: portrait) {
+            .pequeno-retrato { display: block; }
+        }
+        /* Nesse caso o media trabalhara com e, ou seja, para mostrar o resultado do que está dentro tem que estar dentro dos dois criterios */
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo { display: block; }
+        }
     </style>
 </head>
 <body>
