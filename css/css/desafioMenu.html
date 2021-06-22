@@ -1,51 +1,284 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Desafio Menu</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <style>
-        /* ... */
-    </style>
-</head>
+        * {
+          box-sizing: border-box;
+        }
 
-<body>
+         body {
+          background-color: lightgray;
+          margin: 0;
+          font-family: 'Oswald', sans-serif;
+        }
+
+       /* .cabecalho a {
+          text-decoration: none;
+          color: #eee;
+          font-size: 1.3em;
+
+        } */
+
+       /* .menu a{
+          padding: 15px;
+        } */
+
+        .cabecalho { /* header */
+          /* display: flex;
+          background-color: black;
+          width: 100%;
+          margin: 0 auto;
+          height: 65px;
+          justify-content: flex-end;  */
+          background-color: #333;
+          border-bottom: solid 5px #4faddb;
+          height: 80px;
+          box-sizing: content-box;
+        }
+
+        .logo {
+           /* margin-right: 0; */
+           /* width: 25%; */
+          /* order: -1;  */
+          display:inline-block;
+          height: 80px;
+          padding: 15px;
+        }
+
+        .logo img {
+          height: 100%;
+        }
+
+        .menu-toggle {
+          /* display: none; */
+          float: right;
+          color: #eee;
+          background-color: #555;
+          border: solid 1px #777;
+          border-radius: 5px;
+          height: 40px;
+          padding: 10px 20px;
+          margin: 20px 15px;
+      }
+
+         .menu {
+          /* align-self: flex-start; */
+          /* width: 90%; */
+          /* list-style-type: none; */
+          display: inline-block;
+          vertical-align: top;
+          height: 80px;
+          padding: 25px;
+
+        }
+
+        .menu ul {
+          margin: 0;
+          padding: 0;
+        }
+
+        .menu li {
+          /*padding-right: 20px;*/
+          /* padding: 0px;
+          margin-left: 0.5em;
+          background-color: #ededed;
+          height: 100%;
+          display: inline-block; */
+          display: inline-block;
+        }
+
+        .cabecalho a {
+          text-decoration: none;
+          color: #eee;
+          font-size: 1.3em;
+        }
+
+        .menu a {
+          padding: 15px;
+
+        }
+
+         .autenticacao {
+          /* como header é flex, os filhos dele podem ser poisicionados com a propriedade flex */
+          /* justify-content: space-between; */
+          /* width: 10%; */
+          /* order: 2; */
+          /* right: 90px; */
+          /* font-size: 20px; */
+          /* margin-right: auto; */
+          /* margin: 1em; */
+          /* border-radius: 10px; */
+          float:right;
+          height: 80px;
+          padding: 25px;
+        }
+
+        /* .menu a:houver,
+        .menu a.selected {
+          background-color: #4faddb;
+          color: #000;
+        } */
+
+          ul li a:hover,
+          .menu a.selected {
+          background-color: cornflowerblue;
+          color: black;
+          border-bottom: 3px solid #ea0000;
+        }
+        .botao.destaque {
+          width: 300px;
+          height: 100px;
+          background-color: red;
+          border-radius: 10px;
+        }
+
+        /* ul li a {
+          padding: 0 0.3em 0 0.3em;
+          display: block;
+          background-color: black;
+          color: white;
+          height: 3em;
+          line-height: 3em;
+          outline: 0;
+        } */
+
+          @media (min-width: 679px) {
+            .menu-toggle {
+              display: none;
+            }
+
+          }
+
+          @media (max-width: 680px) {
+              .menu {
+                display: none;
+              }
+          }
+
+          @media (max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
+          }
+
+          /* ul li.menu-toggle {
+            display: block; */
+            /* background-color: blue; */
+            /* como header é flex, os filhos dele podem ser poisicionados com a propriedade flex */
+            /* right: 0;
+            order: 5;
+            margin-right: auto;
+          } */
+          /* .menu.active,
+          .autenticacao.active { */
+            /* background-color: blueviolet; */
+            /* position: relative;
+            height: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            display: inline-flex;
+            margin-top: 4em;
+            z-index: 1; */
+            /* border-radius: 10px; */
+         /* } */
+
+          /* .menu.active li.menu-toggle {
+            position: absolute;
+            /* display: inline-block */
+            /* display: inline-block; */
+            /* width: 50%;
+            right: 0;
+            top: 0; */
+         /* } */
+
+          /* .menu.active li {
+            text-align: center;
+            float: none;
+            padding: 0;
+            display: inline;
+          } */
+
+          /* .menu.active li a {
+            display: block;
+            padding: 0;
+            text-align: left;
+            line-height: 30px;
+            text-align: center;
+          } */
+       /* } */
+
+        /* nav {
+          display: inline;
+          order: 1;
+          margin-right: auto;
+        } */
+    </style>
+  </head>
+  <body>
     <header class="cabecalho">
-        <div class="logo">
-            <a href="#inicio">
-                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
-            </a>
-        </div>
-        <button class="menu-toggle">
-            <i class="fa fa-lg fa-bars"></i>
-        </button>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="#inicio">Início</a>
-                </li>
-                <li>
-                    <a href="#cursos">Cursos</a>
-                </li>
-                <li>
-                    <a href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a href="#contato">Contato</a>
-                </li>
-            </ul>
-        </nav>
-        <aside class="autenticacao">
-            <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
-        </aside>
+      <div class="logo">
+        <a href="#inicio">
+          <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <button class="menu-toggle">
+        <i class="fa fa-lg fa-bars"></i>
+      </button>
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#inicio">Início</a>
+          </li>
+          <li>
+            <a href="#cursos">Cursos</a>
+          </li>
+          <li>
+            <a href="#sobre">Sobre</a>
+          </li>
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="autenticacao">
+        <a href="#login">Login</a>
+        <a href="#registar" class="botao destaque">Registrar</a>
+      </aside>
     </header>
 
     <script>
-        // ...
-    </script>
-</body>
+      // sempre que o hash muda ele chama a função
+        window.onhashchange = function(e) {
+          // o url antigo e da um split em cima dele
+          const oldURL = e.oldURL.split('#')
+        }
 
+      var toggle = document.querySelector(".menu-toggle");
+      var menu = document.querySelector(".menu");
+      var autenticacao = document.querySelector(".autenticacao");
+
+      toggle.addEventListener(
+        "click",
+        (_) => {
+          console.log("toggle clicked");
+          // classlist injeta uma nova classe no elemento
+          menu.classList.toggle("active");
+          autenticacao.classList.toggle("active");
+        },
+        false          
+        
+      );
+    </script>
+  </body>
 </html>
