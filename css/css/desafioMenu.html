@@ -293,7 +293,18 @@
       // sempre que o hash muda ele chama a função
         window.onhashchange = function(e) {
           // o url antigo e da um split em cima dele
-          const oldURL = e.oldURL.split('#')
+          // split divide uma string em cima de algum caractere
+          const oldURL = e.oldURL.split('#')[1]
+          const newURL = e.newURL.split('#')[1]
+          console.log(oldURL, newURL)
+          const oldMenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+          const newMenu = document.querySelector(`.menu a[href='#${newURL}']`)
+          // quero adicionar e remover a classe selected
+          // voce vai remover a classe selected do menu antigo
+          oldMenu && oldMenu.classList.remove('selected') 
+          // voce adicionar a classe selected ao menu atual que for clicado
+          newMenu && newMenu.classList.add('selected')
+
         }
 
       var toggle = document.querySelector(".menu-toggle");
