@@ -59,7 +59,7 @@
           height: 100%;
         }
 
-        .menu-toggle {
+        .menu-toggle{
           /* display: none; */
           float: right;
           color: #eee;
@@ -69,7 +69,32 @@
           height: 40px;
           padding: 10px 20px;
           margin: 20px 15px;
+          /* cursor: pointer; */
       }
+
+        /* .menu-toggle:hover,
+        .fa fa-lg fa-bars {
+          background-color: lightgray;
+          color: black;
+        } */
+
+        /* .dropdown {
+          position: relative;
+          display: inline-block;
+        } */
+
+        /* .dropdown-child {
+          display: none;
+          background-color: gainsboro;
+          min-width: 200px;
+        } */
+
+        /* .dropdown-child li {
+          color: gray;
+          padding: 20px;
+          display: block; */
+         /*} */
+
 
          .menu {
           /* align-self: flex-start; */
@@ -171,6 +196,8 @@
             }
           }
 
+          
+
           /* ul li.menu-toggle {
             display: block; */
             /* background-color: blue; */
@@ -232,25 +259,30 @@
           <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
         </a>
       </div>
-      <button class="menu-toggle">
-        <i class="fa fa-lg fa-bars"></i>
-      </button>
-      <nav class="menu">
-        <ul>
-          <li>
-            <a href="#inicio">Início</a>
-          </li>
-          <li>
-            <a href="#cursos">Cursos</a>
-          </li>
-          <li>
-            <a href="#sobre">Sobre</a>
-          </li>
-          <li>
-            <a href="#contato">Contato</a>
-          </li>
-        </ul>
-      </nav>
+      <!-- <div class="dropdown"> -->
+        <button class="menu-toggle">
+          <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <!-- <div class="dropdown-child"> -->
+             <nav class="menu">
+          <ul>
+            <li>
+              <a href="#inicio">Início</a>
+            </li >
+            <li>
+              <a href="#cursos">Cursos</a>
+            </li>
+            <li>
+              <a href="#sobre">Sobre</a>
+            </li>
+            <li>
+              <a href="#contato">Contato</a>
+            </li>
+          </ul>
+        </nav> 
+        <!-- </div> -->
+      <!-- </div> -->
+     
       <aside class="autenticacao">
         <a href="#login">Login</a>
         <a href="#registar" class="botao destaque">Registrar</a>
