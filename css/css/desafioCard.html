@@ -5,7 +5,100 @@
     <meta charset="UTF-8">
     <title>Desafio Card</title>
     <style>
-        /* ... */
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+       
+       
+        .cursos {
+            display:flex;
+        }
+
+       .curso {
+           position: relative;
+           border: 2px solid gainsboro;
+           width: 270px;
+           font-size: 20px;
+           display: inline-block;
+           height: 310px;
+           margin-left: 15px;
+           margin-right: 25px;
+           box-shadow: 0 .1em 1em gray;
+       }
+
+       .curso img {
+           height: 143px;
+           width: 263px;
+           position: relative;
+           top: 4px;
+           bottom: 5px;
+           left: 3px;
+       }
+
+       .curso-info {
+           position:relative;
+           font-size: 20px;
+           left: 5px;
+           margin-bottom: 11px;
+       }
+
+        .curso-info h4 {
+            font-weight: bolder;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 25px;
+            position:relative;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-left: 8px;
+
+        }
+
+        .curso-info p {
+            margin-left: 8px;
+            margin-bottom: 1px;
+            margin-top: 11px;
+            padding: 1px;
+            font-size: 18px;
+            font-weight: bolder;
+            font-family: 'PT Sans', sans-serif;
+
+        }
+
+        #remove {
+            display:none;
+        }
+
+        .curso-preco {
+           position: relative;
+           /* float:right; */
+           width:57%;
+           margin-left: 75px;
+           padding-bottom: 8px;
+           /* margin-top: 10px; */
+           /* margin-bottom: 5px; */
+           
+
+       }
+
+       .preco-de {
+           text-decoration: line-through;
+           color:rgb(202, 20, 20);
+           font-size: 17px;
+           margin-left: 12px;
+           position:relative;
+           top: 5px;
+       }
+
+       .preco-por {
+           font-weight: bolder;
+           font-family: 'PT Sans', sans-serif;
+           color:green;
+           font-size: 25px;
+           position: relative;
+           right: -80px;
+           top: -27px;
+       }
+
+
+       
     </style>
 </head>
 
@@ -16,12 +109,12 @@
     <img src="http://files.cod3r.com.br/curso-web/card.png" height="340" alt="Objetivo">
 
     <h2>Resultado</h2>
-    <div>
+    <div class="cursos">
         <div class="curso">
             <img src="http://files.cod3r.com.br/curso-web/curso1.jpg" />
             <div class="curso-info">
                 <h4>Docker: Ferramenta essencial para Desenvolvedores</h4>
-                <p>Prof. Fulano</p>
+                <p id="remove">Prof. Fulano</p>
             </div>
             <div class="curso-preco">
                 <span class="preco-de">R$80,00</span>
