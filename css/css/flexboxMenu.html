@@ -54,6 +54,26 @@
         /* ==================== */
         /* Solução com Flex Box */
         /* ==================== */
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            /* nas pontas não tem espaço mas entre eles sim */
+            justify-content: space-between;
+        }
+
+        .menu {
+            flex-grow: 10;
+        }
+
+        .menu ul {
+            /* display-flex é por padrao row, o menu ocupara todos a mesma linha */
+            display: flex;
+            /* justify-content: space-around; */
+        }
+
+        .menu li {
+            margin: 0px 10px;
+        }
     </style>
 </head>
 
