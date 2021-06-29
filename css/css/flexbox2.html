@@ -4,9 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Flexbox #02</title>
-    <link rel="stylesheet" href="css/tag.css">
+    <!-- <link rel="stylesheet" href="css/tag.css"> -->
     <style>
-        /* ... */
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }   
+
+        .flex-container div {
+            box-sizing: border-box;
+        }       
+        
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+        /*lidando com o filho de numero 3*/
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /*manipulando a ordem desses elementos*/
+            /*ordem maior, elemento fica por ultimo*/
+            order: 1;
+            /*todos os elementos estão com a mesma ordem*/
+            order: 0;
+            /*o elemento passa estar na primeira posição pois sua ordem e menor que todos os outros*/
+            order: -1;
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;
+        }
+
+        .flex-container div {
+            width: 100px;
+            /*peso zero, os elementos não cresceram*/
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+        /*ira pegar o primeiro elemento definido na div*/ 
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            /*ira encolher os elementos estando todos o mesmo tamanho*/
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
     </style>
 </head>
 
