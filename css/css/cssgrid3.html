@@ -38,6 +38,17 @@
                     'navegacao conteudo'
                     'rodape rodape';
         }
+
+        @media(max-width: 700px) {
+            body {
+                /* tera uma unica coluna */
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 1fr 100px;
+                grid-template-areas: 'navegacao''conteudo''rodape';
+            }
+
+            header { display: none; }
+        }
     </style>
 </head>
 
