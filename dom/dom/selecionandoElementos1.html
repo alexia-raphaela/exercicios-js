@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        document.getElementById('primeiro').classList.add('destaque')
+
+        //as tres funcoes de document.get retornam um html collection, não é um array
+        //todos os elementos do tipo div serão selecionados
+        const divs = document.getElementsByTagName('div')
+        //transformando um html collection em array
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        //espalhar cada um dos elementos nesse novo array
+        //transformando um html collection em array
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        //recebendo uma lista como resposta
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        //pegar cada um dos elementos
+        for(let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+    </script>
+</body>
+</html>
