@@ -22,6 +22,7 @@
 
 <body class="conteudo exercicio">
     <h1>Formulário</h1>
+    <!-- é nescessario que coloque a propriedade name dentro dos campo de entrada do seu formulario -->
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
         <select name="hl">
@@ -31,7 +32,14 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms)
+        console.log(document.forms[0])
+        console.log(document.getElementsByName('pesquisa'))
+        console.log(document.pesquisa)
+        console.log(document.pesquisa.q)
+        // é possivel selecionar os elementos com o name
+        document.pesquisa.q.value = 'Linux Brasil'
+        document.pesquisa.hl.value = 'en-us'
     </script>
 </body>
 
