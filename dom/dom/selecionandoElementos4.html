@@ -22,8 +22,48 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
-    </script>
+        function log () {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+        // a partir de um determinado elemento você consegue facilmente pegar o elemento pai
+        // estrutura dom é uma estrutura de arvore
+        lista.parentNode.log()
+        // traz os espacos entre os lis
+        lista.childNodes.log()
+
+        // trara o primeiro elemento faz de fora do li
+        const primeiro = lista.firstChild
+        // mostrara o primeiro elemento
+        primeiro.log()   
+        primeiro.nextSibling.log()
+        
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log()
+
+        // nao vem os textos somente os li
+        lista.children.log()
+        // traz o primeiro elemento que foi definido dentro da lista
+        lista.firstElementChild.log()
+        lista.lastElementChild.log()
+        // parent node, div que está envolvendo a ul
+        // previous dara elemento irmao anterior 
+        lista.parentNode.previousElementSibling.log()
+        // elemento irmao posterior
+        lista.parentNode.nextElementSibling.log()
+
+        // desta forma você pega exatamente o elemento que você precisa
+        document.querySelectorAll('div ul li').log()
+
+        
+        </script>
 </body>
 
 </html>
