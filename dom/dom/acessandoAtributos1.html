@@ -15,7 +15,40 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img')
+        // pegando o valor do atributo a partir dessa função
+        // dessa forma voce acessa o atributo a partir de uma string
+        // getAttribute da o valor daquele atributo
+        console.log('getAttribute', img.getAttribute('src'))
+        // acessando diretament o atributo src
+        console.log('src', img.src)
+        console.log('["src"]', img['src'])
+        console.log('alt', img.alt)
+
+        console.log('Elemento "img"..............')
+        // todos os elementos e atributos tem uma propriedade chamada nodeType
+        // o nodeType de img é elemento do tipo 1
+        console.log('NodeType', img.nodeType)
+        // acessar qual o nome daquele elemento
+        // nodeName é do tipo img
+        console.log('NodeName', img.nodeName)
+
+        // dara o nó que representa aquele atributo
+        const src = img.getAttributeNode('src')
+        console.log('Atributo "src"..........')
+        console.log('NodeType', src.nodeType) 
+        console.log('NodeName', src.nodeName) 
+        // dara a url que é o valor acossiado aquele nó   
+        console.log('NodeValue', src.nodeValue)   
+        
+        const link = document.querySelector('a')
+        console.log('Elemento "a".............')
+        console.log('href', link.href)
+        // pegar o filho daquele elemento e ver o tipo de nó que ele representa
+        console.log('firstChild.nodeType', link.firstChild.nodeType)
+        // pegando dentro do link o elemento filho dele
+        // atribuindo um novo texto e alterando o valor
+        link.firstChild.nodeValue = 'Novo Texto'
     </script>
 </body>
 
