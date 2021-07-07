@@ -12,7 +12,35 @@
         Classes
     </div>
     <script>
-        // ...
+        // manipular as classes de um determinado elemento
+        const div = document.querySelector('div')
+        // a partir da função classList é possivel adicionar, remover, função toggle
+        // eu tenho todas as classes de um determinado elemento, sendo possivel fazer qualquer tipo de alteração
+        const classes = div.classList
+        classes.add('destaque')
+        classes.remove('destaque')
+        // alternancia se existe ele remove, se nao existe ele adiciona
+        classes.toggle('destaque')
+        // verificar se a classe esta contida ou nao dentro minha lista de classes
+        console.log(classes.contains('destaque'))
+        console.log(classes.length)
+        classes.toggle('destaque')
+
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        classes.forEach(c => console.log(c))
+
+        for(let c of classes) {
+            console.log(c)
+        }
+
+        // meios de ter um array a partir de classes
+        [...classes]
+        Array.from(classes)
+
     </script>
 </body>
 
