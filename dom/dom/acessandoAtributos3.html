@@ -16,7 +16,18 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras')
+
+        // somente leitura
+        // pegar todos os atributos dentro de uma lista
+        console.log(lista.attributes)
+        console.log(lista.attributes[0])
+        console.log(lista.attributes.id)
+        console.log(lista.attributes[1])
+        console.log(lista.attributes.destino)
+        console.log(lista.attributes[2])
+        // contendo caracteres diferentes na palavra como um ifem é dessa forma que é preciso fazer para acessa-la
+        console.log(lista.attributes['data-urgencia'])
     </script>
 </body>
 
