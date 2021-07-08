@@ -9,9 +9,31 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- quando acontecer o evento do click, invoque essa função passando evento como parametro -->
+        <!-- fica expliciti que o onclick está sendo ligada a uma função javascript -->
+        <!-- onclick="navegarEm5s(event)" -->
+        <!-- atributo personalizado que sera utilizado por -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        // acessar realmente o link depois de 5 segundos
+        function navegarEm5s(e) {
+            // a função foi criada mas ainda nao esta sendo chamada quando ocorre o click
+            // com o preventDefault o comportamento padrao não vai acontecer
+            e.preventDefault()
+            console.log('Saindo em 5s...')
+            const handler = () => {
+                const link = e.target
+                window.location.href = link.href
+            }
+            setTimeout(handler, 5000)
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        // pegando elementos que tem o atributo espera
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onlick = navegarEm5s
     </script>
 </body>
