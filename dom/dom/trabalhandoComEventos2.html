@@ -10,6 +10,19 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move'
+            if (e.buttons) {
+                // e.target é a minha div que disparou o evento
+                // em outras palavras div.style.top, ou seja, quero setar a posição de onde ela está em relação ao topo da pagina
+                // vai pegar o eixo y vertical que é e.clientY, - a altura da div divido por 2
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px `
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px `
+            }
+        }
     </script>
 </body>
