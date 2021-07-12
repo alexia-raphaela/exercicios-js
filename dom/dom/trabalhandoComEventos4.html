@@ -31,6 +31,53 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
-    </script>
+        // const submit = document.querySelector('[wm-submit]')
+        // submit.onclick = function(e) {
+        //     e.preventDefault()
+
+        //      nesse caso e.target é o botão pesquisar
+        //      pegar o parentNode desse botão, ou seja, quem está envolvendo ele
+        //      está se tratando do formulario
+        //     const form = e.target.parentNode
+        //      criando newformdata temos os dados do formulario a disposição
+        //     const formData = new FormData(form)
+        //      adicionando uma nova informação no formdata, que não tinha originalmente
+        //     formData.append('ajax', true)
+        //      verificar um determinado valor
+        //     console.log(formData.get('q'))
+        //      verificar se um campo está ou não contido
+        //     console.log(formData.has('hl'))
+
+        //      mostrara tudo o que foi adcionado
+        //      pegando todos os elementos do formulario
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+        // }
+
+        // pegando o evento onsubmit do formulario
+        const form = document.forms[0]
+        form.onsubmit = function (e) {
+            e.preventDefault()
+
+            // nesse caso e.target é o botão pesquisar
+            //pegar o parentNode desse botão, ou seja, quem está envolvendo ele
+            // está se tratando do formulario
+            const form = e.target
+            // criando newformdata temos os dados do formulario a disposição
+            const formData = new FormData(form)
+            // adicionando uma nova informação no formdata, que não tinha originalmente
+            formData.append('ajax', true)
+            // verificar um determinado valor
+            console.log(formData.get('q'))
+            // verificar se um campo está ou não contido
+            console.log(formData.has('hl'))
+
+            // mostrara tudo o que foi adcionado
+            // pegando todos os elementos do formulario
+            for (let dado of formData) {
+                console.log(dado)
+            }
+        }
+    </script>4
 </body>
