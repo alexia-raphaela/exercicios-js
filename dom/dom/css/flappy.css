@@ -2,10 +2,12 @@
   box-sizing: border-box;
 }
 
-/* @font-face {
+/* pontos do usuario */
+@font-face {
   font-family: 'Pixel';
   src: url('../fonts/Pixel.ttf');
-} */
+}
+
 
 /* adicionar um estilo para tudo que tiver o a propriedade personalizada */
 [wm-flappy] {
@@ -18,6 +20,7 @@
   /* items que estejam fora da area definida, nao ira aparacer */
   overflow: hidden;
 }
+
 
 .passaro {
   position: absolute;
@@ -48,11 +51,20 @@
   border: 2px solid #000;
 }
 
+
 .barreira .corpo {
-  height: 40px;
+  height: 150px;
   width: 110px;
   background: linear-gradient(90deg, #639301, #A5E82E);
   border-left: 2px solid #000;
   border-right: 2px solid #000;
 
+}
+
+.progresso {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: Pixel;
+  font-size: 70px;
 }
