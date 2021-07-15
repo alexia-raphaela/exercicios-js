@@ -156,6 +156,35 @@ function Progresso() {
 //   passaro.animar()
 // }, 20)
 
+function estaoSobrepostos(elementoA, elementoB) {
+  // retangulo acossiado ao elemento A e B
+  // temos todas as dimensoes para calcular se ha ou não 
+  // pelo Ah estar mais longe da esquerda que o B, faz dele maior que o elemento B
+  // calculo para verificar colisao
+  const a = elementoA.getBoundingClientRect()
+  const b = elementoB.getBoundingClientRect()
+
+  const horizontal = a.left + a.width >= b.left
+    && b.left + b.width >= a.left
+    const vertical = a.top + a.height >= b.top 
+      && b.top + b.height >= a.top
+      return horizontal && vertical
+}
+
+function colidiu(passaro, barreiras) {
+  let colidiu = false
+  barreiras.pares.forEach(parDeBarreiras => {
+    if (!colidiu) {
+      // para cada par de barreiras tem uma barreira superior e inferior
+      const superior = parDeBarreiras.superior.elemento
+      const inferior = parDeBarreiras.inferior.elemento
+      colidiu = estaoSobrepostos(passaro.elemento, superior)
+        || estaoSobrepostos(passaro.elemento, inferior)
+    }
+  })
+  return colidiu
+}
+
 function FlappyBird() {
   let pontos = 0
 
@@ -178,6 +207,11 @@ function FlappyBird() {
         const temporizador = setInterval(() => {
           barreiras.animar()
           passaro.animar()
+
+          if (colidiu(passaro, barreiras)) {
+            // quando houver colisao o jogo ira parar
+            clearInterval(temporizador)
+          }
         }, 20)
     }
 }
