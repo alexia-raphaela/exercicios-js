@@ -11,6 +11,74 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        // fazer requisições assincronas
+        // metodo ajax que recebe um objeto de config que tem que ter tres parametros, o url, metodo de sucesso e metodo de erro
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            // abrir uma requisicao do tipo get
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    // chamar a função que foi passada dentro de config
+                    config.sucesso(xhr.response)
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        code: xhr.status, 
+                        text: xhr.statusText
+                    })
+                }
+            }
+            // ira enviar a requisicao
+            xhr.send()
+        }
+
+        function criarTabela(estados) {
+                    // construir uma tabela com a Dom
+                    const linhas = estados.map(estado => {
+                    // map está transformando meu array de estados em um conjunto de elementos da dom
+                    // transformando cada linha de objetos de estado em uma table row, linha da tabela
+                    // tdId é uma table data, é uma celula, é a junção entre linha e coluna
+                    const tdId = document.createElement('td')
+                    tdId.innerHTML = estado.id
+
+                    const tdNome = document.createElement('td')
+                    tdNome.innerHTML = estado.nome
+
+                    const tdSigla = document.createElement('td')
+                    tdSigla.innerHTML = estado.sigla
+
+                    const tr = document.createElement('tr')
+
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdSigla)
+
+                    return tr
+
+                })
+
+                const tabela = document.createElement('table')
+                    // adcionando todas as linhas na tabela
+                    linhas.forEach(linha => tabela.appendChild(linha))
+                    //adcionando tabela no body
+                    document.body.appendChild(tabela)
+        }
+
+
+        ajax({
+            url: "dados/estados.json",
+            metodo: "get",
+            sucesso(resposta) {
+                // tratar resposta
+                const estados = JSON.parse(resposta)
+                criarTabela(estados)
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.code}: ${e.text}`)
+                document.body.appendChild(msg)
+            }
+        })
+
     </script>
 </body>
