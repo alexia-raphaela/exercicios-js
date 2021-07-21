@@ -40,5 +40,13 @@
             xhr.open("post", config.url, true)
             xhr.send(config.formData)
         }
+
+        // monitorar evento onchange
+        document.querySelector('input[type=file]').onchange = e => {
+            const formData = new FormData()
+            // e.target é o input que tem o tipo file
+            // pegando o nome qye ja foi dado .,
+            formData.append(e.target.name, e.target.files[0])
+        }
     </script>
 </body>
