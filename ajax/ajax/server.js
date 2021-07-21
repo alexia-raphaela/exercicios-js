@@ -7,9 +7,10 @@ const express = require('express')
 const app = express()
 // middleware é uma camada de mediacao entre tecnologias que nao sabem se comunicar ent//re si
 // middleware vai ser executado quando uma determinada requisicao chegar
-app.use(express.static('.'))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+// servindo todos os conteudo estaticos que ele encontrar na mesma pasta
+app.use(express.static('.')) 
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
 
 // fazendo upload de um arquivo
 const multer = require('multer')
