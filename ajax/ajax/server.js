@@ -18,7 +18,7 @@ const multer = require('multer')
 const storage = multer.diskStorage({
   //este objeto serve para cofigurar personalizar uma pasta, arquivo 
   destination: function (req, file, callback) {
-    callback(null, './unpload')
+    callback(null, './upload')
   },
   filename: function (req, file, callback) {
     // quando for escolhido o nome de um arquivo, sera seguido esse padrao de nome
