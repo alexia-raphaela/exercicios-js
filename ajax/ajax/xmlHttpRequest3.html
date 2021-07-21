@@ -11,6 +11,42 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        function ajax(config)
+        const xhr = new XMLHttpRequest()
+        // utilizando true para ser assincrono
+        xhr.open(config.metodo, config.url, true)
+
+        xhr.onreadystatechange = e => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.responseXML)
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        codigo: xhr.status,
+                        texto: xhr.statusText
+                    })
+                }
+            }
+
+            xhr.send()
+        }
+
+        ajax({
+            url: "dados/estados.xml",
+            metodo: "get",
+            // ira trazer um xml pronto ja convertido
+            sucesso(resposta) {
+                const estados = resposta.getElementsByTagName()
+                const itens = Array.from(estados).reduce(
+                    // html é o texto gerado dessa função, o acumulador
+                    // concatenando texto com acumulador
+                    // para cada iteração ele ira adicionar 
+                    (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, ''    
+                )
+                // string ul com todos os elementos, vai ser convetido para dom
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul> `)
+
+            }
+        })
     </script>
 </body>
