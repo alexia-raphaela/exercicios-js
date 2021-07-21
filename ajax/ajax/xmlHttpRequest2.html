@@ -44,9 +44,22 @@
         // monitorar evento onchange
         document.querySelector('input[type=file]').onchange = e => {
             const formData = new FormData()
+            const inputFile = e.target
             // e.target é o input que tem o tipo file
-            // pegando o nome qye ja foi dado .,
-            formData.append(e.target.name, e.target.files[0])
+            // pegando o nome qye ja foi dado 
+            formData.append(inputFile.name, inputFile.files[0])
+
+            ajaxUpload({
+                url: "upload",
+                formData: formData,
+                // recebera dados do progresso
+                progresso(dados) {
+                    // seleciona a classe progresso
+                    const progresso = document.querySelector('.progresso')
+                    // pegando esse o objeto dados, traanformando em string e colocando dentro de progresso
+                    progresso.innerHTML = JSON.stringify(dados)
+                }
+            })
         }
     </script>
 </body>
