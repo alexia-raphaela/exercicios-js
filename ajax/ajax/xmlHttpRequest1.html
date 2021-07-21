@@ -74,6 +74,8 @@
                 const estados = JSON.parse(resposta)
                 criarTabela(estados)
             },
+            
+            
             erro(e) {
                 const msg = document.createTextNode(`${e.code}: ${e.text}`)
                 document.body.appendChild(msg)
