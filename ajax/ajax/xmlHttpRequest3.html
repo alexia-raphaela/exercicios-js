@@ -11,7 +11,8 @@
     <h1>Estados</h1>
 
     <script>
-        function ajax(config)
+        // trabalhando com xml
+        function ajax(config) {
         const xhr = new XMLHttpRequest()
         // utilizando true para ser assincrono
         xhr.open(config.metodo, config.url, true)
@@ -27,25 +28,32 @@
                     })
                 }
             }
-
-            xhr.send()
         }
+        xhr.send()
+    }
 
         ajax({
             url: "dados/estados.xml",
             metodo: "get",
             // ira trazer um xml pronto ja convertido
-            sucesso(resposta) {
-                const estados = resposta.getElementsByTagName()
+            sucesso(resposta) {9
+                const estados = resposta.getElementsByTagName('estado')
                 const itens = Array.from(estados).reduce(
                     // html é o texto gerado dessa função, o acumulador
                     // concatenando texto com acumulador
                     // para cada iteração ele ira adicionar 
+                    // '' valor inicial que passara para a função reduce
                     (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, ''    
                 )
                 // string ul com todos os elementos, vai ser convetido para dom
+                // chamando função adjacent, antes de terminar ensira a linha ul
                 document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul> `)
 
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto} `)
+                // caso ocorra um erro msg sera colocado no body
+                document.body.appendChild(msg)
             }
         })
     </script>
