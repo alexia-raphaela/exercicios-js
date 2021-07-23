@@ -9,8 +9,8 @@ const app = express()
 // middleware vai ser executado quando uma determinada requisicao chegar
 // servindo todos os conteudo estaticos que ele encontrar na mesma pasta
 app.use(express.static('.')) 
-// app.use(bodyParser.urlencoded({ extended: true }))
-// app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // fazendo upload de um arquivo
 const multer = require('multer')
@@ -35,6 +35,19 @@ app.post('/upload', (req, res) => {
         return res.end('Ocorreu um erro.')
       }
       res.end('Concluido com sucesso')
+  })
+})
+// ira retornar um objeto, uma resposta para o frontend
+// função middlewra ira tratar o recebimento desse formulario
+app.post('/formulario', (req, resy
+) => {
+  res.send({
+    // tudo que vier na resposta vai ser jogado nesse novo objeto, que tambem esta sendo devolvido com resposta para o fronteend
+    // retornar tudo que vier no body mais o id
+    ...req.body,
+    // retornando o id mais o objeto, retornando para a minha pagina
+    // o id foi calculado
+    id: 1
   })
 })
 
