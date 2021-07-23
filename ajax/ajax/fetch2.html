@@ -29,6 +29,38 @@
     </form>
     <div id="resultado"></div>
     <script>
-        // ...
+        // intersepitando a submição do formulario
+        document.usuarioForm.onsubmit = async e => {
+            // eu mesma mandar a submissao via ajax
+            e.preventDefault()
+
+            const form = e.target
+            // é possivel pegar tudo que foi digitado
+            const data = new FormData(form)
+            // como adcionar
+            data.append('ajax', true)
+
+            // options foi passado para personalizar os metodos que eu quero
+            const options = {
+                method: form.method,
+                // é passar os dados do formulario que eu preciso para que ele possa ir na submissao
+                // todos os dados do meu formulario
+                body: new URLSearchParams(data)
+            }
+            // pegar resultado uma unica vez
+            const resultado = document.getElementById('resultado')
+            // action é a url que eu quero chamar no beckend
+            fetch(form.action, options)
+                .then(resp => resp.json())
+                .then(json => {
+                    // adcionando na div
+                    const resultado = document.getElementById('resultado')
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+                .catch(e => {
+                   
+                })
+
+        }
     </script>
 </body>
