@@ -47,20 +47,28 @@
                 // todos os dados do meu formulario
                 body: new URLSearchParams(data)
             }
+            // adcionando na div
             // pegar resultado uma unica vez
             const resultado = document.getElementById('resultado')
             // action é a url que eu quero chamar no beckend
-            fetch(form.action, options)
-                .then(resp => resp.json())
-                .then(json => {
-                    // adcionando na div
-                    const resultado = document.getElementById('resultado')
-                    resultado.innerHTML = JSON.stringify(json)
-                })
-                .catch(e => {
-                   
-                })
-
+            // fetch(form.action, options)
+            //     .then(resp => resp.json())
+            //     .then(json => {
+            //         resultado.innerHTML = JSON.stringify(json)
+            //     })
+            //     .catch(e => {
+            //        resultado.innerHTML = e 
+            //     })
+                try {
+                // ele ira resolver e retornar a resposta
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                // reusando resultado que estou pegando logo acima e covertendo para json
+                resultado.innerHTML = JSON.stringify(json)
+                // e se caso der um erro, caira no catch
+            } catch (e) {
+                resultado.innerHTML = e
+            }
         }
     </script>
 </body>
