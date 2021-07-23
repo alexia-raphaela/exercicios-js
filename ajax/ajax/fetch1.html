@@ -11,6 +11,19 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        // trabalhando com json
+        const url = 'dados/estados.json'
+        // o fetch é basicamente a chamada de uma função
+        fetch(url)
+        // ira retornar uma promisse
+            .then(resp => resp.json())
+            // ja esta trazendo estados como um array
+            .then(estados => {
+                const itens = estados.reduce(
+                    // '' valor inicial para o reduce comecar a fazer a concatenação corretamente
+                    (html, estado) => html + `<li>${estado.nome}</li> `, ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul> ` )
+            })
     </script>
 </body>
