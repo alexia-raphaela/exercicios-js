@@ -14,6 +14,29 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        // dados que que quero colocar dentro dessa div id
+        function exibirResultado(id, dados) {
+            // converter objeto json para uma string
+            const texto = JSON.stringify(dados)
+            // dentro elemento que foi selecionado sera colocado no innerHTML o texto convertido
+            document.getElementById(id).innerHTML = texto
+        }
+         // dessa forma nao precisaria espicificar colocando get, porque é uma requisiçao padrao
+        // axios('parOuImpar?numero=10').then(resp => exibirResultado('get', resp.data))
+
+        //options sera passado como segundo parametro 
+        axios.get('parOuImpar', {
+            params: {
+                numero: 6
+            }
+            // resp.data é aquilo que veio como resposta do servidor
+        }).then(resp => exibirResultado('get', resp.data))
+
+        axios.post('formulario', {
+            // dados que eu quero mandar para o backend
+            nome: 'Maria',
+            sobrenome: 'Silva'
+            // dados sera pego a partir de resp.data
+        }).then(resp => exibirResultado('post', resp.data))
     </script>
 </body>
