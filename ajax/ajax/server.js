@@ -47,8 +47,21 @@ app.post('/formulario', (req, res
     ...req.body,
     // retornando o id mais o objeto, retornando para a minha pagina
     // o id foi calculado
-    id: 7
+    id: Math.round(Math.random() * (100 - 1) + 1)
   })
+});
+
+app.get('/parOuImpar', (req, res) => {
+  // receber dados do seu fronteend
+  // req.body
+  // req.query
+  // req.params, diferença entre query, é forma como voce passara dados por parametro na url
+  // em cima do numero que recebi como parametro, sera calculado se o numero é par ou impar
+  const par = parseInt(req.query.numero) % 2 === 0
+  res.send({
+      resultado: par ? 'par' : 'impar'
+  })
+
 })
 
 // app.get('/teste', (req, res) => res.send('Ok'))
