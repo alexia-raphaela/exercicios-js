@@ -12,6 +12,18 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        // axios tambem é um cliente http
+        // é uma biblioteca de terceiros, não é suportado por padrao no browser
+        // basico de axios, fazendo uma requisição do tipo get
+        const url = 'dados/estados.json'
+        axios(url).then(resp => {
+            // no axios ja tenho dentro do atributo .data aquilo que eu recebi como resposta da requisição
+            // data ja é um json convertido
+            const itens = resp.data.reduce(
+                // pegando o html, os dados de estados e covertendo isso para uma lista
+                (html, estado) => html + `<li>${estado.nome}</li> `, ''
+            )
+            document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul> `)
+        })
     </script>
 </body>
