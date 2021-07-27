@@ -14,6 +14,39 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        // ajax fetch usam promisse que é uma api moderna, tambem foi usado async await, que é mais moderno
+        // utilizando a api jquery
+        function exibirResultado(id, dados) {
+            // converter objeto json para uma string
+            const texto = JSON.stringify(dados)
+            // dentro elemento que foi selecionado sera colocado no innerHTML o texto convertido
+            document.getElementById(id).innerHTML = texto
+        }
+
+        $.ajax({
+            url: 'parOuImpar',
+            data: {
+                numero: 5
+            },
+            success(data) {
+                exibirResultado('get', data)
+            }
+        })
+
+        $.ajax({
+            url: 'formulario',
+            method: 'post',
+            data: {
+                nome: 'Maria',
+                sobrenome: 'Silva'
+            },
+            // a função success recebi como parametro os dados
+            success(data) {
+                exibirResultado('post', data)
+            },
+            error(e) {
+                exibirResultado('post', e)
+            }
+        })
     </script>
 </body>
