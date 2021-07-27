@@ -25,6 +25,39 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        function navegarViaAjax(url, seletor, push = true) {
+            // return para sair da função caso nao tenha nenhum dos dois
+            if(!url || !seletor) return 
+            const elemento = document.querySelector(seletor)
+            // requisição ajax utilizando fetch
+            fetch(url)
+            // pegando o texto do html a partir de resp
+                .then(resp => resp.text())
+                .then(html => {
+                    elemento.innerHTML = html
+                    if(push) {
+                        // colocando mais um elemento no historico do browser
+                        history.pushState({ seletor }, "Pagina Ajax", url)
+                    }
+                })
+
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value
+            const seletorDestino = link.attributes['wm-destino'].value
+
+            link.onclick = e => {
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino)
+            }
+        })
+        // tirando um elemento da pilha
+        // estou controlando o historico de navegacao e a mudança de url via javaScript
+        window.onpopstate = e => {
+            if(e.state) {
+                navegarViaAjax(window.location.href, e.state.seletor, false)
+            }
+        }
     </script>
 </body>
