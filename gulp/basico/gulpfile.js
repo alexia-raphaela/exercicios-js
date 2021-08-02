@@ -3,8 +3,8 @@
 // ou dependendo do cenario, voce pode paralelisar algumas tarefas, tarefas serao executadas em paralelo
 // importando o gulp
 const gulp = require('gulp')
-// importar de dentro do gulp
-const series = gulp.series
+const { series, parallel } = require('gulp')
+
 
 // cada função representa uma tesk
 const antes1 = cb => {
@@ -19,7 +19,8 @@ const antes2 = cb => {
 
 // notificar o gulp que uma tarefa foi concluida
 function copiar(cb) {
-    console.log('Tarefa de copiar')
+    // serve para selecionar quais arquivos 
+    gulp.src()
     return cb()
 }
 
@@ -30,8 +31,7 @@ const fim = cb => {
 
 
 module.exports.default = series(
-    antes1,
-    antes2,
+   parallel( antes1, antes2),
     copiar,
     fim
 )
