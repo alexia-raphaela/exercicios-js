@@ -19,8 +19,8 @@ const antes2 = cb => {
 
 // notificar o gulp que uma tarefa foi concluida
 function copiar(cb) {
-    // serve para selecionar quais arquivos 
-    gulp.src()
+    // serve para selecionar quais arquivos voce vai usar como entrada para workflow que voce vai definir dentro desse arquivo
+    gulp.src(['pastaA/arquivo1.txt', 'pastaA/arquivo2.txt'])
     return cb()
 }
 
