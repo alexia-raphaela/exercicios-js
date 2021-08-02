@@ -20,7 +20,22 @@ const antes2 = cb => {
 // notificar o gulp que uma tarefa foi concluida
 function copiar(cb) {
     // serve para selecionar quais arquivos voce vai usar como entrada para workflow que voce vai definir dentro desse arquivo
-    gulp.src(['pastaA/arquivo1.txt', 'pastaA/arquivo2.txt'])
+    // gulp.src(['pastaA/arquivo1.txt', 'pastaA/arquivo2.txt'])
+    // todo arquivo que tiver dentro da pastaA que tem a extensão txt sera passado para a pastaB
+    gulp.src('pastaA/**/*.txt')
+    // EXEMPLO DE UMA POSSIVEL PIPELINE
+
+        // aplicar transformaçoes nos arquivos que voce definiu como arquivos de entrada
+        // esse conjunto de pipe sera um pipeLine
+        // aplicando transformaçoes em uma serie de dados e arquivos
+        // .pipe(imagemPelaMetade())
+        // .pipe(imagemEmPretoEBranco())
+        // .pipe(transformaçãoA())
+        // .pipe(transformaçãoB())
+        // .pipe(transformaçãoC())
+
+        // colocar imagens em uma pasta de destino
+        .pipe(gulp.dest('pastaB'))
     return cb()
 }
 
