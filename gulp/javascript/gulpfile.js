@@ -4,8 +4,8 @@ const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const babel = require('gulp-babel')
 
-function padrao(cb) {
-    gulp.src('src/**/*.js')
+function transformacaoJS(cb) {
+  return  gulp.src('src/**/*.js')
         .pipe(babel({
             // nos arquivos de comentario nao seram transferidos para o arquivo final
             comments: false,
@@ -13,8 +13,15 @@ function padrao(cb) {
             presets: ["env"]
         }))
         .pipe(uglify())
-        .pipe(concat('código.min.js'))
+        // on captura qualquer evento
+        .on('error', err => console.log(err))
+        .pipe(concat('codigo.min.js'))
         .pipe(gulp.dest('build'))
-
-        return cb()
 }
+
+function fim(cb) {
+    console.log('Fim!!!')
+    return cb()
+}
+
+exports.default = series(transformacaoJS, fim)
