@@ -16,8 +16,11 @@ function servidor() {
 
 function monitorarArquivos(cb) {
     // se esse arquivo mudar sera chamada uma função
-    // e essa função ira chamar uma tesk do gulp
+    // e essa função ira chamar a tesk do gulp
    watch('src/**/*.html', () => gulp.series('appHTML')())
+   watch('src/**/*.scss', () => gulp.series('appCSS')())
+   watch('src/**/*.js', () => gulp.series('appJS')())
+   watch('src/assets/imgs/**/*.*', () => gulp.series('appIMG')())
    
     return cb()
 }
