@@ -31,6 +31,7 @@ module.exports = {
         })
     ],
     module: {
+        // primeira regra de css
         // regras, onde são colocados todos os loders
         rules: [{
             //primeiro loder, responsavel por ler arquivos com a extensão .css
@@ -46,6 +47,10 @@ module.exports = {
                 'sass-loader',
             ]
             // ele vai injetar via Dom o css que ele interpretou
+        }, { // segunda regra de arquivos de imagens
+            // alternancia de extensoes de imagens
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
         }]
     }
 
