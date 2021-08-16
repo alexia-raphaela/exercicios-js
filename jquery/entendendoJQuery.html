@@ -14,6 +14,27 @@
     <div>2</div>
 
     <script>
-        // ...
+        // cifrão é a referencia para jquery
+        // hide é uma função que escondera os elementos e 5000 é a duração desse processo 
+        // show é o acontrario de hide
+        // jquery é abstração dos seletores da dom
+        // por tras do cifrao, document.get ou querySelector
+        $('div').hide(5000).show(5000).fadeOut(5000)
+        // get para obter o nó da dom
+        console.log($('div').get(1))
+        // padrão de projeto decorator, adciona novas funcionalidades a um objeto sem a necessidade de ter uma herança
+        // verificar se o objeto está ou não vazio, é uma função utilitaria
+        console.log($.isEmptyObject({}))
+        // ele encontra em qual indice o numero dentro do array está
+        console.log(jQuery.inArray(3, [1, 2, 3]))
+
+        $.fn.fundoVerde = function () {
+            this.css('background-color', 'green')
+            // função ficara apta para receber encadiamentos de chamadas
+            // está retornando o proprio objeto, fazendo com que seja possivel encadiar chamadas 
+            return this
+        }
+
+        $('body').fundoVerde().fadeOut(1000)
     </script>
 </body>
