@@ -49,6 +49,31 @@
     </form>
 
     <script>
-        // ...
+        $('#feira').addClass('destaque').removeClass('destaque')
+        $('li').addClass('destaque')
+        $('[wm-obrigatorio]').removeClass('destaque')
+        $('li.opcional').removeClass('destaque')
+        // selecionando uma div que tem uma tag e dentro dela uma tag span
+        $('div p span').addClass('destaque')
+
+        // Exclusivos jQuery
+        //primeiro elemento do tipo li
+        $('li:first').css('border', 'solid 3px blue')
+        // elementos impares
+        $('li:odd').css('border', 'solid 10px orange')
+        // maior que um determinado indice
+        $('li:gt(1)').css('border', 'solid 10px white')
+        // pegar todos os elementos menos o ultimo
+        $('li:not(:last)').css('border', 'none')
+        // verificar se dentro de um determinado elemento com uma letra
+        $('li:contains("r")').css('background-color', 'black')
+
+        $('form *').hide()
+        // algum elemento do tipo texto
+        $('form :text').show()
+        $('form :password').show()
+        $('form :checkbox').show()
+        $('form :radio').show()
+        $('form :file').show()
     </script>
 </body>
