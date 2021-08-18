@@ -74,13 +74,51 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <span>Dentro do Span</span>
+            </p>
         </section>
     </main>
     <footer>
         <p>Cod3r Ensino</p>
     </footer>
     <script>
-        // ...
+        // objetos criados para seren passados para a função css e que o jQuery sabera intrepretar
+        const comBorda = { 'border': 'solid 8px purple' }
+        const semBorda = { 'border': 'none' }
+        // acessando tag pai li a partir de parent
+        $('a[href="#link3"]').parent().css(comBorda).css(semBorda)
+
+        // ultimo item de uma lista
+        // pegar o interior do prev
+        // ou seja pegou o ultimo elemento e voltou um, pegando o penutimo
+        $('li:last').prev().css(comBorda).css(semBorda)
+        $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda)
+
+        // pegando todos os pais
+        $('a[href="#link1"]').parents().css(comBorda).css(semBorda)
+        // pegando todos os pais ate certo ponto
+        $('a[href="#link1"]').parentsUntil($('body')).css(comBorda).css(semBorda)
+
+        //pegar os filhos de uma determinada tag
+        // todos os filhos da tag main serão selecionados
+        $('main').children().css(comBorda).css(semBorda)
+
+        // ira procurar todos os elementos a partir de um determinado nó
+        $('body').find('a').css(comBorda).css(semBorda)
+
+        // selecionando um elemento diretamente da dom usando a api padrão
+        const elementoDOM = document.getElementsByClassName('menu')
+        // passando o proprio elemento dom e trabalhando com jQuery 
+        $(elementoDOM).css(comBorda)
+
+        // fazendo uma iteração com each em cima de elementos dom, passando uma calback
+        // passando como parametro na iteração o indice e o proprio elemento
+        // ou seja trabalaho com os proprios nós da dom
+        $('main').children().each((i, e) => $(e).css(comBorda)).css(semBorda)
+        $('li').each((i, e) => {
+            $(e).css(comBorda)
+        })
+
     </script>
 </body>
