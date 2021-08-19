@@ -17,6 +17,39 @@
     <p class='numero'>5</p>
 
     <script>
-        // ...
+        $('#div1').append(', 2')
+        $('#div1').prepend('0, ')
+
+        // span é um exemplo de criar um elemento e esse elemento criado vai ser apendado ou prependado
+        $('<span>, 3</span>').appendTo('#div1')
+        $('<span>-1, </span>').prependTo('#div1')
+
+        // desse modo eu passo primeiro o seletor, passo uma funçao e depois o que será adicionado
+        $('#div2').before('<p>Antes 2</p>')
+        $('#div2').after('<p>Depois 2</p>')
+
+        // desse modo primeiro irei criar um elemento, passo uma função e depois passo o seletor
+        $('<p>Antes 3</p>').insertBefore('#div3')
+        $('<p>Depois 3</p>').insertAfter('#div3')
+
+        // wrap ira envolver os dois ultimos numeros com uma div
+       // $('p.numero').wrap('<div>')
+        // wrapAll alem de criar uma div que tem um id div 4, ele ira pegar tudo o que foi selecionado e ira envolver com uma unica div os dois elementos
+        $('p.numero').wrapAll('<div id="div4">')
+        // limpar o conteudo da div
+        $('#div4').empty()
+        // selecionando o elemento que tem o id div3 e o elemento que tem o id div4
+        $('#div3, #div4').prev().remove()
+
+        // todos os paragrafos que estiverem dentro do body serão substituidos
+       // $('<div>Substituto</div>').replaceAll('body > p')
+       // nesse caso estou trabalahndo primeiro com o seletor, com replaceWith que tera o mesmo efeito e por ultimo eu passo o que eu quero substituir
+      // $('body > p').replaceWith('<div>Substituto</div>')
+       $('body > p').replaceWith(function() {
+           // passei o this para dentro da chamada do jQuery, para ter todas as funções a minha disposição
+           // estou chamando o html, o html do elemento atual está sendo colocado no html da div que eu acabei de criar
+           // esse modo é semelhante ao warp, porem aqui estou pegando apenas o conteudo do paragrafo e colocando diretamente na div
+           return $('<div>').html($(this).html()).append('!!!')
+       })
     </script>
 </body>
