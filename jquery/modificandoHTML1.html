@@ -13,6 +13,7 @@
     <div id='conteudo1'></div>
     <div id='conteudo2'></div>
     <div id='conteudo3'></div>
+    <div>Sem ID!</div>
     
 
     <script>
@@ -39,5 +40,10 @@
         .prepend('<h1>0</h1>')
         // html substitui um conteudo
         $('#conteudo3').html('<h1>123</h1>')
+        // ira intrepertar como um texto 
+        $('#conteudo3').text('<h1>123</h1>')
+
+        // Adicionando todos de uma só vez
+        $('div[id]').html('<strong>Todos!</strong>')
     </script>
 </body>
