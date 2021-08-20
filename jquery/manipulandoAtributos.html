@@ -32,6 +32,9 @@
             // passando elemento dom para dentro de jquery
             const $elemento = $(elemento)
             $elemento.append(horaCerta, botaoMenos, botaoMais)
+
+            const getIntervaloAtual = 
+                () => parseInt($elemento.attr('wm-relogio'))
         }
         // para cada um dos relogios que eu obter, vai ser chamado a função construtora criada new relogio
         // essa função que sera responsavel por fazer todo o trabalho
