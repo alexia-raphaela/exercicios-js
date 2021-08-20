@@ -23,6 +23,19 @@
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
     <script>
-        // ...
+        // função construtora
+        function Relogio(elemento) {
+            const horaCerta = $('<p>')
+            const botaoMenos = $('<button>').html('-')
+            const botaoMais = $('<button>').html('+')
+
+            // passando elemento dom para dentro de jquery
+            const $elemento = $(elemento)
+            $elemento.append(horaCerta, botaoMenos, botaoMais)
+        }
+        // para cada um dos relogios que eu obter, vai ser chamado a função construtora criada new relogio
+        // essa função que sera responsavel por fazer todo o trabalho
+        // e é o elemento da dom não do jQuery
+        $('[wm-relogio]').each((i, e) => new Relogio(e))
     </script>
 </body>
