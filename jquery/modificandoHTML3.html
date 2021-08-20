@@ -10,9 +10,35 @@
 
 <body class='conteudo exercicio'>
     <h1>Modificando HTML #03</h1>
-    <div id='conteudo'></div>
+    <div id='conteudo'>
+        <!-- <table id= 'tabela'>
+            <tr>
+                <td>nome</td>
+                <td>nota</td>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>9.1</td>
+            </tr>
+            <tr>
+                <td>Bianca</td>
+                <td>8.4</td>
+            </tr>
+            <tr>
+                <td>Carlos</td>
+                <td>7.6</td>
+            </tr>
+            <tr>
+                <td>Julia</td>
+                <td>9.7</td>
+            </tr>
+
+        </table> -->
+    </div>
 
     <script>
+        const corFundo = { 'background': 'gray' }
+        const borda = { 'border': 'solid 6px black' }
         const pessoas = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
@@ -20,7 +46,36 @@
             { nome: 'Julia', nota: 9.7 }
         ]
 
-    
+        $('#conteudo').css(corFundo).css(borda).append('<table><th>Nome</th><th>Nota</th></table>')
+
+        pessoas.forEach((pessoa) => {
+            $('#conteudo table').append('<tr><td>'+pessoa.nome+'</td><td>'+pessoa.nota+'</td></tr>')
+        } 
+        )
+
+        // modo do profesor
+        // calback sera chamada quando a pagina estiver pronta
+        // $(document).ready(function() {
+        //     const pessoas = [
+        //     { nome: 'Ana', nota: 9.1 },
+        //     { nome: 'Bianca', nota: 8.4 },
+        //     { nome: 'Carlos', nota: 7.6 },
+        //     { nome: 'Julia', nota: 9.7 }
+        // ]
+
+        //     const linhas = pessoas.map(p => {
+        //         const tdNome = $('<td>').html(p.nome)
+        //         const tdNota = $('<td>').html(p.nota)
+        //         //transformando objetos javascripts em elementos da dom criado por jQuery
+        //         // return $('<tr>').append(tdNome).append(tdNota)
+        //         // return $('<tr>').append([tdNome, tdNota])
+        //         return $('<tr>').append(tdNome, tdNota)
+        //     })
+
+        //     const tabela = $('<table>').append(linhas)
+        //         .css('border', 'solid 5px')
+        //     $('#conteudo').append(tabela)
+        // })
         
         
     </script>
