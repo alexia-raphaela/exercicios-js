@@ -12,9 +12,29 @@
     <h1>Manipulando CSS</h1>
     <div id='div1'>1</div>
     <div id='div2'>2</div>
-    <div id='div3'>3</div>
     <div id='resultado'></div>
     <script>
-        // ...
+        // acessar fonte atual // .css é para selecionar
+        const fonte = $('#div1').css('font-family')
+        $('#resultado').append(`Fonte é ${fonte}`)
+
+        $('#div1').css('font-size', '3em')
+        $('#div1').css({'font-size': '3.5em', 'color': 'yellow' })
+        // manipulando css a partir de uma função
+        $('#div1').css('font-size', function () {
+            return `${2 * 2}em`
+        })
+
+        $('#div2').addClass('destaque')
+
+        // hasClass verificando se existe uma classe especifica
+        const temClasse = $('#div2').hasClass('destaque')
+        $('#resultado').append(`<br>Tem class? ${temClasse}`)
+
+        $('#div2').removeClass('destaque')
+        // toggleClass trabalha com alternancia, se não tiver ele adiciona
+        $('#div2').toggleClass('destaque')
+        // na linha 36 esta sendo utlizada destaque, portanto na linha 38 sera removido o destaque
+        $('#div2').toggleClass('destaque')
     </script>
 </body>
