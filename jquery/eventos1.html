@@ -20,6 +20,9 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostrarPosicaoMouse(e) {
+            // em qual posição o mouse está na tela
+            $('#posicao').html(`x ${e.clientX} y: ${e.clientY}`)
+        }
     </script>
 </body>
