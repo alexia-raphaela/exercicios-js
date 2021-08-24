@@ -21,11 +21,37 @@
 <body class='conteudo exercicio'>
     <h1>Eventos #03</h1>
     <div id='div1'>1</div>
-    <div id='div2'>1</div>
+    <div id='div2'>2</div>
     <input id='input1' type='text' placeholder='Digite Algo!'>
     <span id='resultado'></span>
 
     <script>
-        // ...
+        function exibirDadosEvento(e) {
+            // ira limpar o resultado
+            $('#resultado').empty()
+            const div1 = $('<div>')
+            const div2 = $('<div>')
+
+            $('#resultado').append(div1, div2)
+            // dentro do evento existe a propriedade target, qual o elemento que disparou aquele evento e você também pode pegar o id daquele elemento
+            div1.append(`target: ${e.target.id}`)
+
+            // se o relatedTarget não estiver presente eu retorno null se sim eu pego tagName
+            const rt = e.relatedTarget ? e.relatedTarget.tagName : null
+            div1.append(`<br>relatedTarget: ${rt}`)
+
+            div1.append(`<br>type: ${e.type}`)
+            // qual tecla foi selecionada
+            div1.append(`<br>which: ${e.which}`)
+            // botão metacaractere estiver pressionado
+            div1.append(`<br>metaKey: ${e.metaKey}`)
+
+        }
+        // relatedTarget é um outro elemento qu está relacionado com outro evento
+        // função com os eventos
+        $('#div1, #div2').on('mouseenter mouseleave', exibirDadosEvento)
+        // evento associado ao input
+        // quando o input tiver um keyup sera chamada a função
+        $('input').keyup(exibirDadosEvento)
     </script>
 </body>
