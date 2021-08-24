@@ -20,9 +20,58 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
+        // monitorando a posicao do mouse na tela
         function mostrarPosicaoMouse(e) {
             // em qual posição o mouse está na tela
+            // sempre que o evento for notificado, que a função for chamada, a posicição sera atualizada
             $('#posicao').html(`x ${e.clientX} y: ${e.clientY}`)
         }
+        // acossiar ao body o evento do mouse
+        // on registra evento dentro do jQuery
+        // primeiro porametro sera o nome do evento que voce quer trabalhar
+        // quando ocorrer um evento com o mouse a função sera chamada
+        $('body').on('mousemove', mostrarPosicaoMouse)
+
+        // desativando o monitoramento quando estiver na div
+        // quando o mouse estiver por cimda da div posicao, mouseover, a evento mousemove nao estara ativo
+        // off desativa um evento
+        $('#posicao').mouseover(e => {
+            $('body').off('mousemove', mostrarPosicaoMouse)
+        })
+
+        // ativando novamente monitoramento fora da div
+        // quando o mouse sair de cima da div
+        $('#posicao').mouseleave(e => {
+            $('body').on('mousemove', mostrarPosicaoMouse)
+        })
+
+        // monitorar os clicks
+        let cliques = 0
+        $('body').click(e => {
+            $('#cliques').html(`Cliques ${++cliques}`)
+        })
+
+        // monitorar eventos do teclado
+        // aramazenando a cor do background original
+        const BackgroundOriginal = $('body').css('background-color')
+
+        // keyup tem sempre o valor atualizado
+        // keydown e keypress não tem o valor atualizado no momento do clique
+        // nesse caso é preciso usar a função comum com corpo, para que o this que seja exatamente o elemento que selecionamos
+        // o this em uma função comum e em uma função arrow são diferentes
+        $('input').keyup(function (e) {
+            // pegando valor atual
+            // this é o elemento que foi selecionado
+            const valor = $(this).val()
+            // \da-fA-F{3,6} esta expressao sera um set que definira a cexpressao da cor, ou seja, tera letras minusculas de d ate a, e letras maiusculas de A ate F de tres a seis vezes
+            // dara match se for uma cor valida
+            // {3,6} é um quantificador
+            if (valor.match(/#[\da-fA-F]{3,6}/)) {
+                $('body').css('background-color', valor)               
+            } else {
+                $('body').css('background-color', BackgroundOriginal)
+            }
+        })
+           
     </script>
 </body>
