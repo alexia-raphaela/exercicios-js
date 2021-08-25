@@ -28,6 +28,41 @@
     <div>Animar!</div>
 
     <script>
-        // ...
+        function alterarLargura(valor, duracao, callback) {
+            // a função callback será chamada quando a animação terminar
+           return new promisse ($('div').animate({ width: `+=${valor}`}
+                , duracao, callback)) 
+        }
+
+        // reutilizando uma função com um seletor passado como parametro
+        // alterarLargura('button', '200px', 2000, () => {} )
+
+        function moverDiagonal(valor, duracao, callback) {
+            $('div').animate({ top: `+=${valor}`, left: `+=${valor}` }
+                , duracao, callback)
+        }
+
+        function girar(valor, duracao, callback) {
+            $('div').animate({ transform: `+=${valor}`}, {
+                // para cada vez que o valor for acrescentado
+                // dentro dessa função que sera feito o tratamento para mexer na propriedade transform
+                step: function (valor) {
+                    // para ter acesso ao elemento atual é usado this
+                    // esse valor vai estar sendo acrescentado do valor atual até o valor total passado
+                    // para cada iteração vai ser chamado a função step, para inicar a rotação em cima do valor passado
+                    $(this).css('transform', `rotate(${valor}deg)`)
+                },
+                duration: duracao
+            }, 'linear', callback)
+        }
+
+        alterarLargura(300, 100, () => {
+            alterarLargura(-300, 'slow', () => {
+                moverDiagonal(300, 600, () => {
+                    girar(3300, 3000)
+                })
+            })
+        })
+
     </script>
 </body>
