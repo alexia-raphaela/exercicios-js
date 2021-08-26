@@ -11,6 +11,7 @@
 <body class='conteudo exercicio'>
     <h1>Plugin #01</h1>
     <div>
+        <!--double start, codigo sera interpretado por algum framework -->
         {{ 1 + 2 }}
         Texto 1
         {{ 3 ** 3 }}
@@ -22,6 +23,32 @@
     </div>
 
     <script>
-        // ...
+        // plugin vai substituir tudo que estiver dentro de duas chaves
+        // const $ = { nome: 'Não é o jQuery '}
+
+        (function ($) {
+            // pluginque sera criado, associando a uma função
+            $.fn.interpretar = function () {
+                // tirando os dois primeiros caracteres e os dois ultimos caracteres
+                // quando é interpretado expressões com duplas chaves, as chaves vem junto com expressao, por isso estar sendo retirado
+                const retirarChaves = s => s.substring(2, s.length -2)
+                // pegar o conteudo a partir de this.html
+                const conteudo = $(this).html()
+                // um array de expressoes que deu um match nessa rejex
+                const expressoesComChaves = conteudo.match(/\{\{.+\}\}/g)
+                const expressoes = expressoesComChaves.map(retirarChaves)
+                const resultados = expressoes.map(e => eval(e))
+
+                let conteudoFinal = conteudo
+                for (let i = 0; i < expressoesComChaves.length; i++) {
+                    conteudoFinal = conteudoFinal.replace(
+                        expressoesComChaves[i], resultados[i]
+                    )
+                }
+                $(this).html(conteudoFinal)
+            }
+        })(jQuery)
+
+        $('div').interpretar()
     </script>
 </body>
