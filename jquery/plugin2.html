@@ -13,6 +13,10 @@
     <div></div>
     <script src="js/temporizador.js"></script>
     <script>
-        // ...
+        $('div').temporizador({
+            mensagem: 'Em breve um novo site para você',
+            // se o horario estiver comentado, ele ira mostrar quanto tempo falta para terminar o dia
+            horario: '18:10:50'
+        }).hide().fadeIn(3000)
     </script>
 </body>
