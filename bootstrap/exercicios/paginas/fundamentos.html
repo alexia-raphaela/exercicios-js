@@ -1,6 +1,17 @@
-<!-- Título (jumbotron) -->
-<!-- Breadcrumb -->
+<div class="jumbotron p-4 my-1">
+    <h1 class="display-4">Fundamentos</h1>
+    <!-- texto menor que fica em baixo do titulo -->
+    <p class="lead m-1">Alguns recursos importantes do Bootstrap</p>
+</div>
 
+<nav class="mb-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#/paginas/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Fundamentos</li>
+    </ol>
+</nav>
 <div class="exercicio">
     <h1>1. Tipografia -
         <small>
@@ -25,6 +36,13 @@
     <hr>
 
     <!-- Espaços -->
+    <!-- opcoes de top, left, right, bottom -->
+    <!-- mb margem bottom, 5 é o tamanho maximo para a margem definido no bootstrap -->
+    <div class="mb-5">1</div>
+    <!-- m-4 margem em toda a div de tamanho 4, py-4 padding no eixo y vertical -->
+    <div class="m-4 py-4">2</div>
+    <!-- pt padding top -->
+    <div class="pt-5">3</div>
 
     <h1 class="mt-5">3. Cores -
         <small>
@@ -33,7 +51,11 @@
     </h1>
     <hr>
 
+    <!-- Como usar as cores dentro do html usando as classes pré definidas do bootstrap -->
     <!-- Cores -->
+    <div class="my-1 p-3 bg-primary text-light">1</div>
+    <div class="my-1 p-3 bg-danger text-white">2</div>
+    <div class="my-1 p-3 bg-warning text-success">3</div>
 
     <h1 class="mt-5">4. Flex -
         <small>
