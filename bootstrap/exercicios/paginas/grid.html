@@ -1,7 +1,7 @@
 <div class="jumbotron p-4 my-1">
     <h1 class="display-4">Sistema de Grid</h1>
     <!-- texto menor que fica em baixo do titulo -->
-    <p class="lead m-1">Revolução da Responsividade: Containers, 
+    <p class="lead m-1">Revolução da Responsividade: Containers,
         Linhas e 12 Colunas.
     </p>
 </div>
@@ -25,31 +25,106 @@
     <hr>
 
     <!-- Grid Básica -->
+    <!-- irá ocupar a tela inteira -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- utilizando o col ele divide igualmente os espaços -->
+            <!-- como não foi especificado um numero, ele ira pegar o espaço das duas colunas e ira divir de forma igualitaria -->
+            <div class="col bg-primary">1</div>
+            <div class="col bg-danger">2</div>
+            <div class="col bg-warning">3</div>
+            <div class="col bg-info">4</div>
+            <div class="col bg-secondary">5</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col bg-danger">1</div>
+            <!-- ira ocupar 4 col das 12 -->
+            <div class="col-4 bg-warning">2</div>
+            <div class="col-5 bg-info">3</div>
+            <div class="col bg-primary">4</div>
+        </div>
+    </div>
+
 
     <h1 class="mt-5">2. Grid Responsiva</h1>
     <hr>
 
     <!-- Grid Responsiva -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-primary">1</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-danger">2</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-warning">3</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-info">4</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-success">5</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-secondary">6</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-danger">7</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-info">8</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-success">9</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-secondary">10</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-warning">11</div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1 bg-primary">12</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">3. Quebra de Linha</h1>
     <hr>
 
     <!-- Quebra de Linha -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 bg-primary">1</div>
+            <div class="col-3 bg-danger">2</div>
+            <!-- utilizar uma div vazia, colocando largura de 100% -->
+            <!-- esta linha sera ocupada por inteira, ocorrendo a quebra de linha -->
+            <div class="w-100"></div>
+            <div class="col-3 bg-warning">3</div>
+
+        </div>
+    </div>
 
     <h1 class="mt-5">4. Ordem</h1>
     <hr>
 
     <!-- Ordem -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- quanto maior a ordem o conteudo ficara no final -->
+            <div class="col-4 order-5 bg-primary">1</div>
+            <div class="col-4 order-12 bg-danger">2</div>
+            <div class="col-4 order-1 bg-warning">3</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">5. Offset</h1>
     <hr>
 
     <!-- Offset -->
+    <div class="container-fluid">
+        <!-- é possivel acossiar o offset a um dispositivo -->
+        <div class="row">
+            <!-- offset de 7 posiçoes -->
+            <div class="col-3 offset-7 bg-primary">1</div>
+            <div class="col-4 offset-3 bg-danger">2</div>
+            <div class="col-6 offset bg-warning">3</div>
+        </div>
+    </div>
 
     <h1 class="mt-5">6. Alinhamento</h1>
     <hr>
 
     <!-- Alinhamento -->
+    <div class="container-fluid">
+        <!-- linha terá 300px -->
+        <div class="row h-300">
+            <!-- utilizou o eixo vertical, pois por padrao ele esta usando o eixo da linha -->
+            <!-- flex-direction é row, linha, ou seja, o align self faz o alinhamento do cross axes, que é o eixo contrario, main axes, eixo principal -->
+            <!-- para fazer as 12 colunas, ele utiliza o flex-box, então é possivel utilizar aqui classes css que foram definidas na parte de flex-box -->
+            <div class="col-4 align-self-end bg-primary">1</div>
+            <div class="col-4 align-self-center bg-danger">2</div>
+            <div class="col-4 align-self-start bg-warning">3</div>
+        </div>
+    </div>
 </div>
 
 <style>
