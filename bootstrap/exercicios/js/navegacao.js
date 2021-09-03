@@ -12,6 +12,12 @@
             .then(resp => resp.text())
             .then(html => {
                 destino.innerHTML = html
+                // html é o texto que veio
+                // aplicar tudo que comeca com java script
+                // sS conceito de dotAll do rejex
+                // com esse conceito é posivel pegar todas as linhas mesmo com quebra de linhas
+                // me de todo o texto que esteja disponivel dentro de html
+                eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1])
             })
     }
 

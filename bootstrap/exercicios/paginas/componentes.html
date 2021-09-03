@@ -108,6 +108,27 @@
 <hr>
 
 <!-- Peginação -->
+<div>
+    <nav>
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="#" class="page-link">Anterior</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item active">
+                <a href="#" class="page-link">2</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">3</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">Próximo</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 <h1 class="mt-5">5. Tooltip -
     <small>
@@ -117,6 +138,16 @@
 <hr>
 
 <!-- Tooltip -->
+<div>
+    <div class="alert alert-warning">
+        Precisa chamar uma função JS!
+        <strong>E agora?</strong>
+    </div>
+    <button class="btn btn-danger" 
+    data-toggle="tooltip" data-placement="top" 
+    title="Pense antes!">Clique Virus!
+</button>
+</div>
 
 <h1 class="mt-5">6. Slider -
     <small>
@@ -126,6 +157,11 @@
 <hr>
 
 <!-- Slider -->
+<div>
+    <div class="carousel slide" id="slider" data-ride="carousel">
+        <div class="carousel-inner bg-dark"></div>
+    </div>
+</div>
 
 <h1 class="mt-5">7. Accordion -
     <small>
@@ -137,5 +173,6 @@
 <!-- Accordion -->
 
 <script>
-    // ...
+    // Funciona?
+    $('[data-toggle="tooltip"]').tooltip()
 </script>
