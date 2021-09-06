@@ -17,7 +17,7 @@
                 // sS conceito de dotAll do rejex
                 // com esse conceito é posivel pegar todas as linhas mesmo com quebra de linhas
                 // me de todo o texto que esteja disponivel dentro de html
-                eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1])
+               eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1])
             })
     }
 
