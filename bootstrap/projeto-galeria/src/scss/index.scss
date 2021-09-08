@@ -1,0 +1,12 @@
+//  o sinal ~ indica que ele ira procurar dentro de node modules
+@import "~bootstrap/scss/bootstrap";
+
+// sobreescrever o nome de uma variavel do sass do font-awesome
+// onde ira encontrar os diretorios das fontes
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+// importando para a partir dos imports acima gerar meu css final
+// o css do bootstrap, do font-awesome e css custom
+@import "custom";
